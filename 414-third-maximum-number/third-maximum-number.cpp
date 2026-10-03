@@ -2,8 +2,8 @@ class Solution {
 public:
     int thirdMax(vector<int>& nums) {
         int n=nums.size();
-        long long m1=nums[0],m2=LLONG_MIN,m3=LLONG_MIN;
-        for(int i=1;i<n;i++){
+        long long m1=LLONG_MIN,m2=LLONG_MIN,m3=LLONG_MIN;
+        for(int i=0;i<n;i++){
             if(nums[i]==m1||nums[i]==m2||nums[i]==m3){
                 continue;
             }
