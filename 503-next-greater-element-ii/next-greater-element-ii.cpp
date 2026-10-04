@@ -2,27 +2,22 @@ class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
         int n=nums.size();
-        vector<long> v(n,LLONG_MIN);
+        int flag=0;
+        vector<int> v(n);
         for(int i=0;i<n;i++){
-            for(int j=i+1;j<n;j++){
-                if(nums[j]>nums[i]){
-                    v[i]=(nums[j]);
+            for(int j=i+1;j<2*n;j++){
+                if(nums[j%n]>nums[i]){
+                    v[i]=(nums[j%n]);
+                    flag++;
                     break;
                 }
             }
-            if(v[i]==LLONG_MIN){
-                for(int j=0;j<i;j++){
-                    if(nums[j]>nums[i]){
-                        v[i]=(nums[j]);
-                        break;
-                    }
-                }
+            if(flag==1) flag=0;
+            else{
+                v[i]=-1;
+                flag=0;
             }
-            if(v[i]==LLONG_MIN) v[i]=-1;
         }
-        for(int i=0;i<n;i++){
-            nums[i]=v[i];
-        }
-        return nums;
+        return v;
     }
 };
