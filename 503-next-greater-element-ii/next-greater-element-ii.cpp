@@ -11,6 +11,7 @@ public:
                     flag++;
                     break;
                 }
+                if(j%n==i) break;
             }
             if(flag==1) flag=0;
             else{
