@@ -22,7 +22,8 @@ public:
                     int d=abs((nums[i]+nums[l]+nums[h])-target);   
                     if(d<c){
                         ans=nums[i]+nums[l]+nums[h];
-                        c=d;}
+                        c=d;
+                    }
                     h--;
                 }
             }
