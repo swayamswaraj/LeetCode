@@ -3,9 +3,7 @@ public:
     int pivotIndex(vector<int>& nums) {
         int n=nums.size();
         int l=0,sum=0;
-        for(int i=0;i<n;i++){
-            sum+=nums[i];
-        }
+        for(int x:nums) sum+=x;
         for(int i=0;i<n;i++){
             if(i>0) l+=nums[i-1];
             int r=sum-nums[i]-l;
