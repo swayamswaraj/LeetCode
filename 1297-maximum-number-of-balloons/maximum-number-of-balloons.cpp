@@ -6,8 +6,10 @@ public:
         for(int i=0;i<n;i++){
             mp[text[i]]++;
         }
+        int ans=0;
         mp['l']/=2;
         mp['o']/=2;
-        return min(mp['b'],min(mp['a'],min(mp['l'],min(mp['o'],mp['n']))));
+        ans=min(mp['b'],min(mp['a'],min(mp['l'],min(mp['o'],mp['n']))));
+        return ans;
     }
 };
