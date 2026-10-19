@@ -6,15 +6,12 @@ public:
         unordered_map<int,int> mp;
         while(high<n){
             mp[fruits[high]]++;
-            if(mp.size()<=2){
-                int len=high-low+1;
-                ans=max(ans,len);
-            }
             while(mp.size()>2){
                 mp[fruits[low]]--;
                 if(mp[fruits[low]]==0) mp.erase(fruits[low]);
                 low++;
             }
+            ans=max(ans,(high-low+1));
             high++;
         }
         return ans;
