@@ -2,13 +2,11 @@ class Solution {
 public:
     int longestOnes(vector<int>& nums, int k) {
         int n=nums.size();
-        int low=0,high=0,ans=INT_MIN;
-        unordered_map<int,int> mp;
+        int low=0,high=0,zero=0,ans=INT_MIN;
         while(high<n){
-            mp[nums[high]]++;
-            while(mp[0]>k){
-                mp[nums[low]]--;
-                if(mp[nums[low]]==0) mp.erase(nums[low]);
+            if(nums[high]==0) zero++;
+            while(zero>k){
+                if(nums[low]==0) zero--;
                 low++;
             }
             ans=max(ans,(high-low+1));
