@@ -1,5 +1,5 @@
-int getvalue(char x){
-    switch (x){
+int getvalue(char c){
+    switch (c){
        case 'I': return 1;
         case 'V': return 5;
         case 'X': return 10;
@@ -9,24 +9,22 @@ int getvalue(char x){
         case 'M': return 1000;
         default:  return 0;
     }
-
 }
 class Solution {
 public:
     int romanToInt(string x) {
-        
-        int n = x.length();
+        int n = x.size();
         int ans=0;
-
         for (int i=0 ; i<n; i++){
             int current = getvalue(x[i]);
             if (i + 1 < n && current < getvalue(x[i + 1])) {
                 ans -= current;
-            } else {
+            } 
+            else {
                 ans += current;
             }
         }
-
       return ans;
-}};
+    }
+};
         
